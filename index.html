@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Hamzah Irawan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .bg-primary {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+        }
+        
+        .bg-secondary {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+            animation: progressFill 2s ease-out;
+        }
+        
+        @keyframes progressFill {
+            from { width: 0%; }
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3b82f6;
+        }
+    </style>
+</head>
+<body class="min-h-full bg-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-blue-600">Hamzah Irawan</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">Beranda</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">Tentang</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition-colors">Keahlian</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors">Kontak</a>
+                </div>
+                <button class="md:hidden text-gray-700" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-primary min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-white slide-in-left">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                        Halo, Saya
+                        <span class="block text-yellow-300">Hamzah Irawan</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 opacity-90">
+                        Pelajar SMK yang Bersemangat & Penuh Dedikasi
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="scrollToSection('about')" class="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-full font-semibold transition-all transform hover:scale-105">
+                            Pelajari Lebih Lanjut
+                        </button>
+                        <button onclick="scrollToSection('contact')" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-semibold transition-all">
+                            Hubungi Saya
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="slide-in-right">
+                    <div class="relative">
+                        <div class="w-80 h-80 mx-auto rounded-full overflow-hidden shadow-2xl floating border-8 border-white">
+                            <!-- Ganti URL di bawah ini dengan link foto Anda -->
+                            <img src="https://via.placeholder.com/400x400/3B82F6/FFFFFF?text=Foto+Anda" 
+                                 alt="Foto Profil Hamzah Irawan" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjM0I4MkY2Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Rm90byBBbmRhPC90ZXh0Pgo8L3N2Zz4='; this.alt='Placeholder - Ganti dengan foto Anda';">
+                        </div>
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-white rounded-full flex items-center justify-center text-4xl shadow-lg floating" style="animation-delay: 1s;">
+                            🎣
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-3xl text-white shadow-lg floating" style="animation-delay: 2s;">
+                            📚
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Tentang Saya</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-2xl card-hover">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Profil Singkat</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Saya adalah seorang pelajar SMK berusia 17 tahun yang memiliki semangat tinggi dalam belajar. 
+                            Lahir di Sidoarjo pada 12 November 2008, saya selalu berusaha memberikan yang terbaik dalam setiap hal yang saya lakukan.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Hobi memancing telah mengajarkan saya nilai-nilai penting seperti kesabaran, ketekunan, dan kemampuan untuk tetap fokus dalam mencapai tujuan.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-blue-500 text-white p-6 rounded-2xl text-center card-hover">
+                        <div class="text-4xl mb-3">🎂</div>
+                        <h4 class="font-bold mb-2">Usia</h4>
+                        <p>17 Tahun</p>
+                    </div>
+                    
+                    <div class="bg-green-500 text-white p-6 rounded-2xl text-center card-hover">
+                        <div class="text-4xl mb-3">📍</div>
+                        <h4 class="font-bold mb-2">Lokasi</h4>
+                        <p>Sidoarjo</p>
+                    </div>
+                    
+                    <div class="bg-purple-500 text-white p-6 rounded-2xl text-center card-hover">
+                        <div class="text-4xl mb-3">🎓</div>
+                        <h4 class="font-bold mb-2">Status</h4>
+                        <p>Pelajar SMK</p>
+                    </div>
+                    
+                    <div class="bg-orange-500 text-white p-6 rounded-2xl text-center card-hover">
+                        <div class="text-4xl mb-3">🎣</div>
+                        <h4 class="font-bold mb-2">Hobi</h4>
+                        <p>Memancing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Keahlian & Kemampuan</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Soft Skills</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-gray-700">Komunikasi</span>
+                                    <span class="text-blue-600 font-bold">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="progress-bar h-3 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-gray-700">Kerja Tim</span>
+                                    <span class="text-blue-600 font-bold">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="progress-bar h-3 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-gray-700">Kesabaran</span>
+                                    <span class="text-blue-600 font-bold">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="progress-bar h-3 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-gray-700">Adaptasi</span>
+                                    <span class="text-blue-600 font-bold">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="progress-bar h-3 rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Minat & Aktivitas</h3>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-blue-50 p-4 rounded-xl text-center">
+                                <div class="text-3xl mb-2">🎣</div>
+                                <h4 class="font-semibold text-gray-800">Memancing</h4>
+                                <p class="text-sm text-gray-600">Hobi Utama</p>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-xl text-center">
+                                <div class="text-3xl mb-2">📚</div>
+                                <h4 class="font-semibold text-gray-800">Belajar</h4>
+                                <p class="text-sm text-gray-600">Pengembangan Diri</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-xl text-center">
+                                <div class="text-3xl mb-2">🤝</div>
+                                <h4 class="font-semibold text-gray-800">Bersosialisasi</h4>
+                                <p class="text-sm text-gray-600">Networking</p>
+                            </div>
+                            
+                            <div class="bg-orange-50 p-4 rounded-xl text-center">
+                                <div class="text-3xl mb-2">🎯</div>
+                                <h4 class="font-semibold text-gray-800">Target Oriented</h4>
+                                <p class="text-sm text-gray-600">Fokus Tujuan</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-8 rounded-2xl card-hover">
+                        <h3 class="text-2xl font-bold mb-4">Visi & Misi</h3>
+                        <p class="mb-4">
+                            <strong>Visi:</strong> Menjadi lulusan SMK yang kompeten dan siap berkontribusi di dunia kerja.
+                        </p>
+                        <p>
+                            <strong>Misi:</strong> Terus belajar, mengembangkan keterampilan, dan membangun karakter yang kuat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Perjalanan Pendidikan</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="relative">
+                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-blue-200"></div>
+                    
+                    <div class="relative timeline-item pl-12 pb-12">
+                        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Sekarang</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">SMK (Sekolah Menengah Kejuruan)</h3>
+                            <p class="text-gray-600 mb-3">Sedang Menempuh Pendidikan</p>
+                            <p class="text-gray-700">
+                                Fokus pada pengembangan keterampilan teknis dan soft skills untuk persiapan memasuki dunia kerja. 
+                                Aktif dalam berbagai kegiatan pembelajaran dan pengembangan diri.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative timeline-item pl-12 pb-12">
+                        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Masa Depan</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Rencana Karir</h3>
+                            <p class="text-gray-600 mb-3">Target Setelah Lulus</p>
+                            <ul class="text-gray-700 space-y-2">
+                                <li class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                    Lulus dengan prestasi terbaik
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                    Melanjutkan ke jenjang pendidikan tinggi atau bekerja
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                    Mengembangkan keterampilan sesuai bidang keahlian
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-primary">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Mari Terhubung</h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto"></div>
+                <p class="text-xl text-white opacity-90 mt-6">Jangan ragu untuk menghubungi saya!</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="glass-effect p-6 rounded-2xl text-white">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-2xl">
+                                📱
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">Telepon</h3>
+                                <p class="text-lg">083830551877</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-effect p-6 rounded-2xl text-white">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-2xl">
+                                📍
+                            </div>
+                            <div>
